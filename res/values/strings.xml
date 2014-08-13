@@ -4,5 +4,6 @@
     <string name="app_name">DMS</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="dms_name">Name</string>
+	<string name="dms_add_user">Add user</string>
 </resources>

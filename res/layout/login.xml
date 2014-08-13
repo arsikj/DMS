@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dms_padding" >
+
+    <TextView
+        android:id="@+id/dms_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dms_name" />
+
+    <ImageButton
+        android:id="@+id/dms_btn_add_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FF0000"
+        android:contentDescription="@string/dms_add_user"
+        android:onClick="onClick"
+        android:src="@android:drawable/ic_menu_add"
+        android:text="@string/dms_add_user" />
+
+    <ListView
+        android:id="@+id/dms_list_users"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/dms_btn_add_user"
+        android:layout_below="@id/dms_name" >
+    </ListView>
+
+</RelativeLayout>
