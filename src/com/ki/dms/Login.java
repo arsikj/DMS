@@ -34,7 +34,7 @@ public class Login extends Activity implements OnItemClickListener {
 
 	public void onClick(View view) {
 		// Add new user
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, PhoneContactsListActivity.class);
 		startActivity(intent);
 	}
 
