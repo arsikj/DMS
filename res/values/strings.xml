@@ -6,4 +6,12 @@
     <string name="hello_world">Hello world!</string>
 	<string name="dms_name">Name</string>
 	<string name="dms_add_user">Add user</string>
+	<string name="add_new_user_name">Name</string>
+	<string name="add_user_name_hint">Enter your user name</string>
+	<string name="add_user_doctor_name">Your doctors name:</string>
+	<string name="add_user_doctor_num">Your doctors phone number</string>
+	<string name="add_user_doctor_num_hint">e.g. 070 111 222</string>
+	<string name="add_user_normal_glucose">What is your normal glucose level?</string>
+	<string name="add_user_example_glucose_level">e.g. from 80 to 140</string>
+	<string name="add_user_save_btn">Save</string>
 </resources>

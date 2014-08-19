@@ -2,6 +2,7 @@ package com.ki.dms;
 
 import java.util.ArrayList;
 
+import com.ki.dms.db.UserTable;
 import com.ki.dms.model.User;
 
 import android.app.Activity;
@@ -24,9 +25,10 @@ public class Login extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 		listView = (ListView) findViewById(R.id.dms_list_users);
-		users = new ArrayList<User>();
-		users.add(new User("Deki"));
-		users.add(new User("Boki"));
+		UserTable ut = new UserTable(this);
+		ut.open();
+		users = ut.allUsers();
+		ut.close();
 		adapter = new UserListAdapter(this, users);
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(this);
@@ -34,7 +36,7 @@ public class Login extends Activity implements OnItemClickListener {
 
 	public void onClick(View view) {
 		// Add new user
-		Intent intent = new Intent(this, PhoneContactsListActivity.class);
+		Intent intent = new Intent(this, AddNewUser.class);
 		startActivity(intent);
 	}
 

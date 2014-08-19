@@ -80,16 +80,16 @@ public class UserTable {
 		return db.delete(DATABASE_TABLE, where, null) != 0;
 	}
 
-//	public void deleteAll() {
-//		Cursor c = getAllRows();
-//		long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
-//		if (c.moveToFirst()) {
-//			do {
-//				deleteRow(c.getLong((int) rowId));
-//			} while (c.moveToNext());
-//		}
-//		c.close();
-//	}
+	// public void deleteAll() {
+	// Cursor c = getAllRows();
+	// long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
+	// if (c.moveToFirst()) {
+	// do {
+	// deleteRow(c.getLong((int) rowId));
+	// } while (c.moveToNext());
+	// }
+	// c.close();
+	// }
 
 	// Get a specific row (by rowId)
 	public Cursor getRow(long rowId) {
