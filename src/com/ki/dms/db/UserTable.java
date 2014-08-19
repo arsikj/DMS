@@ -135,7 +135,7 @@ public class UserTable {
 			user.setDoctorNumber(cursor.getString(COL_DOCTOR_NUMBER));
 			user.setLowGlucose(cursor.getInt(COL_LOW_GLUCOSE));
 			user.setHighGlucose(cursor.getInt(COL_HIGH_GLUCOSE));
-			user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
+			//user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
 		}
 		return users;
 	}

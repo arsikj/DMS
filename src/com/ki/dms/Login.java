@@ -8,6 +8,7 @@ import com.ki.dms.model.User;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -28,6 +29,7 @@ public class Login extends Activity implements OnItemClickListener {
 		UserTable ut = new UserTable(this);
 		ut.open();
 		users = ut.allUsers();
+		Log.i("array", users.toString());
 		ut.close();
 		adapter = new UserListAdapter(this, users);
 		listView.setAdapter(adapter);
@@ -45,5 +47,11 @@ public class Login extends Activity implements OnItemClickListener {
 		Toast.makeText(this, users.get(pos).getName(), Toast.LENGTH_SHORT)
 				.show();
 
+	}
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		adapter.notifyDataSetChanged();
+		super.onResume();
 	}
 }
