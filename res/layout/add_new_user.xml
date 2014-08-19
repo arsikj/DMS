@@ -25,19 +25,19 @@
             android:id="@+id/add_user_ssn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your SSN:" />
+            android:text="@string/add_user_ssn" />
 
         <EditText
             android:id="@+id/add_user_ssn_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your SSN" />
+            android:hint="@string/add_user_ssn_hint" />
 
         <TextView
             android:id="@+id/add_user_doctor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/add_user_margin_top"
             android:text="@string/add_user_doctor_name" />
 
         <LinearLayout
@@ -47,7 +47,7 @@
 
             <EditText
                 android:id="@+id/add_user_doctor_et"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/add_user_layout_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_weight="5"
@@ -56,10 +56,10 @@
 
             <ImageButton
                 android:id="@+id/search_doctor_from_contacts"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/add_user_layout_width"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="Search"
+                android:contentDescription="@string/add_user_image_btn_desc"
                 android:onClick="getContact"
                 android:src="@android:drawable/ic_menu_search" />
         </LinearLayout>
@@ -68,7 +68,7 @@
             android:id="@+id/add_user_doctor_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/add_user_margin_top"
             android:text="@string/add_user_doctor_num" />
 
         <EditText
@@ -82,7 +82,7 @@
             android:id="@+id/add_user_normal_glucose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/add_user_layout_width"
             android:text="@string/add_user_normal_glucose" />
 
         <TextView
@@ -100,29 +100,29 @@
 
             <EditText
                 android:id="@+id/add_user_low"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/add_user_layout_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="@dimen/add_user_margin"
                 android:layout_weight="4"
-                android:hint="From"
+                android:hint="@string/add_user_from_et"
                 android:inputType="number" >
             </EditText>
 
             <View
                 android:id="@+id/divider"
-                android:layout_width="0dp"
-                android:layout_height="2dp"
+                android:layout_width="@dimen/add_user_layout_width"
+                android:layout_height="@dimen/add_user_height"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:background="@color/black" />
 
             <EditText
                 android:id="@+id/add_user_high"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/add_user_layout_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="@dimen/add_user_margin"
                 android:layout_weight="4"
-                android:hint="To"
+                android:hint="@string/add_user_to_et"
                 android:inputType="number" >
             </EditText>
         </LinearLayout>

@@ -6,5 +6,15 @@
     <dimen name="dms_padding">10dp</dimen>
     <dimen name="contact_display_name">30dp</dimen>
     <dimen name="contact_number">15dp</dimen>
+    <dimen name="contact_list_divider">1dp</dimen>
+    <dimen name="contact_view_margin">5dp</dimen>
+    <dimen name="contact_view_margin_bottom">5dp</dimen>
+    <dimen name="contact_view_margin_left">10dp</dimen>
+    <dimen name="contact_view_margin_right">5dp</dimen>
+    <dimen name="add_user_margin_top">10dp</dimen>
+    <dimen name="add_user_layout_width">0dp</dimen>
+    <dimen name="add_user_margin">20dp</dimen>
+    <dimen name="add_user_height">2dp</dimen>
+    
 
 </resources>

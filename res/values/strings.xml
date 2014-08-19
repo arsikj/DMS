@@ -14,4 +14,10 @@
 	<string name="add_user_normal_glucose">What is your normal glucose level?</string>
 	<string name="add_user_example_glucose_level">e.g. from 80 to 140</string>
 	<string name="add_user_save_btn">Save</string>
+	<string name="user_picture">User photo</string>
+	<string name="add_user_ssn">Your social security number</string>
+	<string name="add_user_ssn_hint">Enter your SSN</string>
+	<string name="add_user_image_btn_desc">Search contacts</string>
+	<string name="add_user_from_et">From</string>
+	<string name="add_user_to_et">To</string>
 </resources>

@@ -7,7 +7,7 @@
         android:id="@+id/contact_display_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/contact_view_margin"
         android:textColor="@color/black"
         android:textSize="@dimen/contact_display_name" />
 
@@ -16,9 +16,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/contact_display_name"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginBottom="@dimen/contact_view_margin_bottom"
+        android:layout_marginLeft="@dimen/contact_view_margin_left"
+        android:layout_marginRight="@dimen/contact_view_margin_right"
         android:textColor="@color/black"
         android:textSize="@dimen/contact_number" />
 

@@ -9,7 +9,7 @@
         android:layout_height="fill_parent"
         android:background="@color/white"
         android:divider="@color/red"
-        android:dividerHeight="1dp" >
+        android:dividerHeight="@dimen/contact_list_divider" >
     </ListView>
 
 </RelativeLayout>
