@@ -21,15 +21,19 @@ public class Login extends Activity implements OnItemClickListener {
 	ArrayList<User> users;
 	UserTable ut;
 
+	private static final int ADD_USER_REQ_CODE = 4321;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 		listView = (ListView) findViewById(R.id.dms_list_users);
 		ut = new UserTable(this);
+
 		ut.open();
 		users = ut.allUsers();
 		ut.close();
+
 		adapter = new UserListAdapter(this, users);
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(this);
@@ -67,8 +71,27 @@ public class Login extends Activity implements OnItemClickListener {
 					Toast.LENGTH_LONG).show();
 		} else {
 			Intent intent = new Intent(this, AddNewUser.class);
-			startActivity(intent);
+			startActivityForResult(intent, ADD_USER_REQ_CODE);
 		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK) {
+			switch (requestCode) {
+			case ADD_USER_REQ_CODE:
+				refreshList();
+				break;
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
+	private void refreshList() {
+		ut.open();
+		users.add(ut.getlastUser());
+		ut.close();
+		adapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -78,9 +101,4 @@ public class Login extends Activity implements OnItemClickListener {
 
 	}
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		adapter.notifyDataSetChanged();
-	}
 }

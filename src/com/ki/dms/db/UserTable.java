@@ -2,12 +2,12 @@ package com.ki.dms.db;
 
 import java.util.ArrayList;
 
-import com.ki.dms.model.User;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.ki.dms.model.User;
 
 public class UserTable {
 	DbAdapter adapter;
@@ -125,27 +125,14 @@ public class UserTable {
 		ArrayList<User> users = new ArrayList<User>();
 		Cursor cursor = db.query(DATABASE_TABLE, ALL_KEYS, null, null, null,
 				null, null);
-		User user;
-		cursor.moveToFirst();
-		while (cursor.moveToNext()) {
-			user = new User();
-			user.setId(cursor.getLong(COL_ROWID));
-			user.setName(cursor.getString(COL_NAME));
-			user.setIdNumber(cursor.getString(COL_ID_NUMBER));
-			user.setDoctorName(cursor.getString(COL_DOCTOR_NAME));
-			user.setDoctorNumber(cursor.getString(COL_DOCTOR_NUMBER));
-			user.setLowGlucose(cursor.getInt(COL_LOW_GLUCOSE));
-			user.setHighGlucose(cursor.getInt(COL_HIGH_GLUCOSE));
-			// user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
-			users.add(user);
 
-			if (!cursor.moveToFirst()) {// if cursor is empty
-				return users;
-			}
-			do {
-				users.add(populate(cursor));
-			} while (cursor.moveToNext());			
+		if (!cursor.moveToFirst()) {// if cursor is empty
+			return users;
 		}
+		do {
+			users.add(populate(cursor));
+		} while (cursor.moveToNext());
+
 		return users;
 	}
 
@@ -158,7 +145,6 @@ public class UserTable {
 				null, null);
 		if (cursor.moveToLast()) {
 			return populate(cursor);
-
 		}
 		return null;
 	}
