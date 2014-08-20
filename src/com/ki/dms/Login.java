@@ -20,16 +20,18 @@ public class Login extends Activity implements OnItemClickListener {
 	ListView listView;
 	UserListAdapter adapter;
 	ArrayList<User> users;
+	UserTable ut;
+
+	private static final int ADD_USER_REQ_CODE = 4321;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 		listView = (ListView) findViewById(R.id.dms_list_users);
-		UserTable ut = new UserTable(this);
+		ut = new UserTable(this);
 		ut.open();
 		users = ut.allUsers();
-		Log.i("array", users.toString());
 		ut.close();
 		adapter = new UserListAdapter(this, users);
 		listView.setAdapter(adapter);
@@ -39,7 +41,19 @@ public class Login extends Activity implements OnItemClickListener {
 	public void onClick(View view) {
 		// Add new user
 		Intent intent = new Intent(this, AddNewUser.class);
-		startActivity(intent);
+		startActivityForResult(intent, ADD_USER_REQ_CODE);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK) {
+			switch (requestCode) {
+			case ADD_USER_REQ_CODE:
+				refreshList();
+				break;
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 	@Override
@@ -48,10 +62,14 @@ public class Login extends Activity implements OnItemClickListener {
 				.show();
 
 	}
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
+
+	private void refreshList() {
+		ut.open();
+		User user = ut.getlastUser();
+		if (user != null) {
+			users.add(user);
+		}
+		ut.close();
 		adapter.notifyDataSetChanged();
-		super.onResume();
 	}
 }

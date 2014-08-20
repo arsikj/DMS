@@ -47,7 +47,7 @@ public class AddNewUser extends Activity {
 				break;
 			}
 		}
-		
+
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
@@ -63,7 +63,7 @@ public class AddNewUser extends Activity {
 		ut.open();
 		ut.insertRow(name, SSN, dName, dNumber, lowGlucose, highGlucose);
 		ut.close();
+		setResult(RESULT_OK);
 		finish();
 	}
-
 }
