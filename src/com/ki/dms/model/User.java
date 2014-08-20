@@ -139,4 +139,11 @@ public class User {
 		this.exercisedDays = exercisedDays;
 	}
 
+	@Override
+	public boolean equals(Object o) {// Override equals for Set structure
+		if (o == null || !(o instanceof User)) {
+			return false;
+		}
+		return ((User) o).id == this.id;
+	}
 }

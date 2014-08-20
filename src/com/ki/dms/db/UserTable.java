@@ -34,7 +34,7 @@ public class UserTable {
 
 	public static final String[] ALL_KEYS = new String[] { KEY_ROWID, KEY_NAME,
 			KEY_ID_NUMBER, KEY_DOCTOR_NAME, KEY_DOCTOR_NUMBER, KEY_LOW_GLUCOSE,
-			KEY_HIGH_GLUCOSE };
+			KEY_HIGH_GLUCOSE, KEY_EXERCISE_DAYS };
 
 	public static final String DATABASE_TABLE = "user";
 
@@ -44,7 +44,7 @@ public class UserTable {
 			+ " text not null, " + KEY_DOCTOR_NAME + " text not null, "
 			+ KEY_DOCTOR_NUMBER + " text, " + KEY_LOW_GLUCOSE + " integer , "
 			+ KEY_HIGH_GLUCOSE + " integer, " + KEY_EXERCISE_DAYS + " integer "
-			+ ");";
+			+ " );";
 
 	public UserTable(Context context) {
 		adapter = new DbAdapter(context);
@@ -136,13 +136,43 @@ public class UserTable {
 			user.setDoctorNumber(cursor.getString(COL_DOCTOR_NUMBER));
 			user.setLowGlucose(cursor.getInt(COL_LOW_GLUCOSE));
 			user.setHighGlucose(cursor.getInt(COL_HIGH_GLUCOSE));
-			//user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
+			// user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
 			users.add(user);
+
+			if (!cursor.moveToFirst()) {// if cursor is empty
+				return users;
+			}
+			do {
+				users.add(populate(cursor));
+			} while (cursor.moveToNext());			
 		}
 		return users;
 	}
 
 	public boolean update(long id, ContentValues values) {
 		return db.update(DATABASE_TABLE, values, KEY_ROWID + " = " + id, null) > 0;
+	}
+
+	public User getlastUser() {
+		Cursor cursor = db.query(DATABASE_TABLE, ALL_KEYS, null, null, null,
+				null, null);
+		if (cursor.moveToLast()) {
+			return populate(cursor);
+
+		}
+		return null;
+	}
+
+	private User populate(Cursor cursor) {
+		User user = new User();
+		user.setId(cursor.getLong(COL_ROWID));
+		user.setName(cursor.getString(COL_NAME));
+		user.setIdNumber(cursor.getString(COL_ID_NUMBER));
+		user.setDoctorName(cursor.getString(COL_DOCTOR_NAME));
+		user.setDoctorNumber(cursor.getString(COL_DOCTOR_NUMBER));
+		user.setLowGlucose(cursor.getInt(COL_LOW_GLUCOSE));
+		user.setHighGlucose(cursor.getInt(COL_HIGH_GLUCOSE));
+		user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
+		return user;
 	}
 }
