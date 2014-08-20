@@ -1,14 +1,13 @@
 package com.ki.dms;
 
 import java.util.ArrayList;
-
 import com.ki.dms.db.UserTable;
 import com.ki.dms.model.User;
-
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -20,26 +19,56 @@ public class Login extends Activity implements OnItemClickListener {
 	ListView listView;
 	UserListAdapter adapter;
 	ArrayList<User> users;
+	UserTable ut;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 		listView = (ListView) findViewById(R.id.dms_list_users);
-		UserTable ut = new UserTable(this);
+		ut = new UserTable(this);
 		ut.open();
 		users = ut.allUsers();
-		Log.i("array", users.toString());
 		ut.close();
 		adapter = new UserListAdapter(this, users);
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(this);
+		listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					final int position, long id) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						Login.this);
+				final int pos = position;
+				builder.setTitle(R.string.alert_dialog_options_title);
+				builder.setItems(R.array.options_array,
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								users.remove(adapter.getItem(pos));
+								ut.open().deleteRow(pos);
+								ut.close();
+								adapter.notifyDataSetChanged();
+							}
+						});
+
+				builder.show();
+				return true;
+			}
+		});
+
 	}
 
 	public void onClick(View view) {
-		// Add new user
-		Intent intent = new Intent(this, AddNewUser.class);
-		startActivity(intent);
+		if (users.size() > 9) {
+			Toast.makeText(this, R.string.login_toast_add_new_user_negative,
+					Toast.LENGTH_LONG).show();
+		} else {
+			Intent intent = new Intent(this, AddNewUser.class);
+			startActivity(intent);
+		}
 	}
 
 	@Override
@@ -48,10 +77,10 @@ public class Login extends Activity implements OnItemClickListener {
 				.show();
 
 	}
+
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
-		adapter.notifyDataSetChanged();
 		super.onResume();
+		adapter.notifyDataSetChanged();
 	}
 }

@@ -20,4 +20,7 @@
 	<string name="add_user_image_btn_desc">Search contacts</string>
 	<string name="add_user_from_et">From</string>
 	<string name="add_user_to_et">To</string>
+	<string name="alert_dialog_options_title">Options</string>
+	<string name="login_toast_add_new_user_negative">You cannot add a new user. Please delete another user first.</string>
+
 </resources>

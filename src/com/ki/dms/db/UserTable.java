@@ -125,9 +125,10 @@ public class UserTable {
 		ArrayList<User> users = new ArrayList<User>();
 		Cursor cursor = db.query(DATABASE_TABLE, ALL_KEYS, null, null, null,
 				null, null);
+		User user;
 		cursor.moveToFirst();
 		while (cursor.moveToNext()) {
-			User user = new User();
+			user = new User();
 			user.setId(cursor.getLong(COL_ROWID));
 			user.setName(cursor.getString(COL_NAME));
 			user.setIdNumber(cursor.getString(COL_ID_NUMBER));
@@ -136,6 +137,7 @@ public class UserTable {
 			user.setLowGlucose(cursor.getInt(COL_LOW_GLUCOSE));
 			user.setHighGlucose(cursor.getInt(COL_HIGH_GLUCOSE));
 			//user.setExercisedDays(cursor.getInt(COL_EXERCISE_DAYS));
+			users.add(user);
 		}
 		return users;
 	}
