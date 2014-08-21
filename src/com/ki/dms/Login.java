@@ -74,8 +74,12 @@ public class Login extends Activity implements OnItemClickListener,
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		Toast.makeText(this, users.get(pos).getName(), Toast.LENGTH_SHORT)
-				.show();
+		/*Toast.makeText(this, users.get(pos).getName(), Toast.LENGTH_SHORT)
+				.show();*/
+		User user = users.get(pos);
+		Intent intent = new Intent(this, MainActivity.class);
+		intent.putExtra("tag", user);
+		startActivity(intent);
 
 	}
 

@@ -21,7 +21,9 @@ public class AddNewUser extends Activity {
 		userName = (EditText) findViewById(R.id.add_user_name_et);
 		doctorName = (EditText) findViewById(R.id.add_user_doctor_et);
 		doctorNumber = (EditText) findViewById(R.id.add_user_doctor_number_et);
+		
 		low = (EditText) findViewById(R.id.add_user_high);
+		
 		high = (EditText) findViewById(R.id.add_user_low);
 		ssn = (EditText) findViewById(R.id.add_user_ssn_et);
 	}

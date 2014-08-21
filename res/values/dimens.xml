@@ -15,6 +15,7 @@
     <dimen name="add_user_layout_width">0dp</dimen>
     <dimen name="add_user_margin">20dp</dimen>
     <dimen name="add_user_height">2dp</dimen>
+    <dimen name="user_list_item_text_size">25dp</dimen>
     
 
 </resources>

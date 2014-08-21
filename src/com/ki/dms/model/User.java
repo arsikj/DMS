@@ -1,6 +1,9 @@
 package com.ki.dms.model;
 
-public class User {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements Parcelable {
 
 	private long id;
 
@@ -20,6 +23,17 @@ public class User {
 
 	public User() {
 
+	}
+
+	public User(Parcel in) {
+		id= in.readLong();
+		name= in.readString();
+		idNumber = in.readString();
+		doctorName = in.readString();
+		doctorNumber = in.readString();
+		lowGlucose = in.readInt();
+		highGlucose = in.readInt();
+		exercisedDays = in.readInt();
 	}
 
 	public User(String name) {
@@ -139,11 +153,35 @@ public class User {
 		this.exercisedDays = exercisedDays;
 	}
 
+	
+
 	@Override
-	public boolean equals(Object o) {// Override equals for Set structure
-		if (o == null || !(o instanceof User)) {
-			return false;
-		}
-		return ((User) o).id == this.id;
+	public int describeContents() {
+		return 0;
 	}
+
+	@Override
+	public void writeToParcel(Parcel out, int flags) {
+		out.writeLong(id);
+		out.writeString(name);
+		out.writeString(idNumber);
+		out.writeString(doctorName);
+		out.writeString(doctorNumber);
+		out.writeInt(lowGlucose);
+		out.writeInt(highGlucose);
+		out.writeInt(exercisedDays);
+	}
+	
+	 public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>(){
+
+	        @Override
+	        public User createFromParcel(Parcel size) {
+	            return new User(size);
+	        }
+
+	        @Override
+	        public User[] newArray(int size) {
+	            return new User[size];
+	        }
+	    };
 }
