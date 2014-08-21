@@ -12,6 +12,6 @@
         android:id="@+id/main_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
+        android:textSize="@dimen/main_text_size"/>
 
 </RelativeLayout>

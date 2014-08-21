@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		User user = getIntent().getParcelableExtra("tag");
 		welcomeUser = (TextView)findViewById(R.id.main_user);
-		welcomeUser.setText("Welcome back "+user.getName().toString());
+		welcomeUser.setText(R.string.welcome_user+user.getName().toString());
 	}
 
 	@Override
