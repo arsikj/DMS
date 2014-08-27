@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/glucose_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/glucose_margin"
+        android:text="@string/glucose_question"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/glucose_text"
+        android:layout_margin="@dimen/glucose_margin"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/glucose_btn_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/glucose_margin_right"
+            android:background="@drawable/buttons"
+            android:text="@string/glucose_btn_yes"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/glucose_btn_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
+            android:text="@string/glucose_btn_no"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

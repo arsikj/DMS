@@ -132,7 +132,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="save"
-            android:text="@string/add_user_save_btn" />
+            android:text="@string/add_user_save_btn"
+            android:background="@drawable/buttons"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </ScrollView>

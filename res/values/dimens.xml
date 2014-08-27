@@ -17,6 +17,8 @@
     <dimen name="add_user_height">2dp</dimen>
     <dimen name="user_list_item_text_size">25dp</dimen>
     <dimen name="main_text_size">20dp</dimen>
+    <dimen name="glucose_margin">10dp</dimen>
+    <dimen name="glucose_margin_right">30dp</dimen>
     
 
 </resources>

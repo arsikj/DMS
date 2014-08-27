@@ -23,5 +23,8 @@
 	<string name="alert_dialog_options_title">Options</string>
 	<string name="login_toast_add_new_user_negative">You cannot add a new user. Please delete another user first.</string>
 	<string name="welcome_user">Welcome back </string>
+	<string name="glucose_question">Have you taken your blood sugar reading today?</string>
+	<string name="glucose_btn_yes">Yes</string>
+	<string name="glucose_btn_no">No</string>
 
 </resources>

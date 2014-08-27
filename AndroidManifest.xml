@@ -51,6 +51,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.ki.dms.GlucoseMonitoring"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.GLUCOSEMONITORING" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
