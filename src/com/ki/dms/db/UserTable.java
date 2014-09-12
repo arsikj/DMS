@@ -42,9 +42,9 @@ public class UserTable {
 			+ " (" + KEY_ROWID + " integer primary key autoincrement, "
 			+ KEY_NAME + " text not null, " + KEY_ID_NUMBER
 			+ " text not null, " + KEY_DOCTOR_NAME + " text not null, "
-			+ KEY_DOCTOR_NUMBER + " text, " + KEY_LOW_GLUCOSE + " integer , "
-			+ KEY_HIGH_GLUCOSE + " integer, " + KEY_EXERCISE_DAYS + " integer "
-			+ " );";
+			+ KEY_DOCTOR_NUMBER + " text not null, " + KEY_LOW_GLUCOSE
+			+ " integer not null, " + KEY_HIGH_GLUCOSE + " integer not null, "
+			+ KEY_EXERCISE_DAYS + " integer " + " );";
 
 	public UserTable(Context context) {
 		adapter = new DbAdapter(context);

@@ -74,8 +74,10 @@ public class Login extends Activity implements OnItemClickListener,
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		/*Toast.makeText(this, users.get(pos).getName(), Toast.LENGTH_SHORT)
-				.show();*/
+		/*
+		 * Toast.makeText(this, users.get(pos).getName(), Toast.LENGTH_SHORT)
+		 * .show();
+		 */
 		User user = users.get(pos);
 		Intent intent = new Intent(this, MainActivity.class);
 		intent.putExtra("tag", user);
@@ -93,9 +95,11 @@ public class Login extends Activity implements OnItemClickListener,
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						users.remove(adapter.getItem(pos));
-						ut.open().deleteRow(pos);
+						ut.open().deleteRow(users.get(pos).getId());
 						ut.close();
+
+						users.remove(adapter.getItem(pos));
+
 						adapter.notifyDataSetChanged();
 					}
 				});

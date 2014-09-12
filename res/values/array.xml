@@ -4,5 +4,11 @@
     <string-array name="options_array">
         <item>Delete</item>
     </string-array>
+    <string-array name="drawer_list">
+        <item>Glucose monitoring</item>
+        <item>Exercise monitoring</item>
+        <item>Help</item>
+        <item>Log out</item>
+    </string-array>
 
 </resources>
