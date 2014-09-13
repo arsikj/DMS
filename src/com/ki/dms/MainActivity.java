@@ -22,7 +22,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	ListView drawerListView;
 	User user;
 	ActionBarDrawerToggle toggle;
-	Fragment[] fragments = new Fragment[3];
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,14 +76,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	}
 
 	private void switchFragment(int position) {
-		Fragment fragment = fragments[0];
+		drawerLayout.closeDrawer(drawerListView);
+		Fragment fragment = new GlucoseFragment(user);// CASE 0
 		switch (position) {
-		case 0:
-			if (fragments[0] == null) {
-				fragments[0] = new GlucoseFragment();
-			}
-			fragment = fragments[0];
-			break;
 		case 1:
 			// exercise
 			break;

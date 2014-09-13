@@ -1,5 +1,7 @@
 package com.ki.dms.model;
 
+import java.util.ArrayList;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -21,13 +23,30 @@ public class User implements Parcelable {
 
 	private int exercisedDays;
 
+	ArrayList<Glucose> measures;
+
+	public ArrayList<Glucose> getMeasures() {
+		return measures;
+	}
+
+	public void setMeasures(ArrayList<Glucose> measures) {
+		this.measures = measures;
+	}
+
+	public void addMeasure(Glucose glucose) {
+		if (measures == null) {
+			measures = new ArrayList<Glucose>();
+			measures.add(glucose);
+		}
+	}
+
 	public User() {
 
 	}
 
 	public User(Parcel in) {
-		id= in.readLong();
-		name= in.readString();
+		id = in.readLong();
+		name = in.readString();
 		idNumber = in.readString();
 		doctorName = in.readString();
 		doctorNumber = in.readString();
@@ -153,8 +172,6 @@ public class User implements Parcelable {
 		this.exercisedDays = exercisedDays;
 	}
 
-	
-
 	@Override
 	public int describeContents() {
 		return 0;
@@ -171,17 +188,17 @@ public class User implements Parcelable {
 		out.writeInt(highGlucose);
 		out.writeInt(exercisedDays);
 	}
-	
-	 public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>(){
 
-	        @Override
-	        public User createFromParcel(Parcel size) {
-	            return new User(size);
-	        }
+	public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
 
-	        @Override
-	        public User[] newArray(int size) {
-	            return new User[size];
-	        }
-	    };
+		@Override
+		public User createFromParcel(Parcel size) {
+			return new User(size);
+		}
+
+		@Override
+		public User[] newArray(int size) {
+			return new User[size];
+		}
+	};
 }

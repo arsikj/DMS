@@ -1,8 +1,6 @@
-package com.ki.dms;
+package com.ki.dms.adapters;
 
 import java.util.ArrayList;
-
-import com.ki.dms.model.User;
 
 import android.app.Service;
 import android.content.Context;
@@ -12,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ki.dms.R;
+import com.ki.dms.model.User;
 
 public class UserListAdapter extends BaseAdapter {
 	LayoutInflater inflater;

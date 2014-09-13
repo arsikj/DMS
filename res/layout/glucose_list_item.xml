@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp" >
+
+    <TextView
+        android:id="@+id/glucose_item_level"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/glucose_item_measured_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/glucose_item_level"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:text="Measured on: "
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/glucose_item_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/glucose_item_measured_on"
+        android:paddingBottom="5dp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/glucose_item_stat_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/glucose_item_date"
+        android:layout_toRightOf="@id/glucose_item_level"
+        android:paddingLeft="5dp"
+        android:text="Reasons:"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/glucose_item_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/glucose_item_stat_reason"
+        android:layout_toRightOf="@id/glucose_item_level"
+        android:padding="5dp"
+        android:singleLine="false"
+        android:textSize="12sp" />
+
+</RelativeLayout>

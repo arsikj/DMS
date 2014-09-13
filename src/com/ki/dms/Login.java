@@ -1,6 +1,8 @@
 package com.ki.dms;
 
 import java.util.ArrayList;
+
+import com.ki.dms.adapters.UserListAdapter;
 import com.ki.dms.db.UserTable;
 import com.ki.dms.model.User;
 import android.app.Activity;
