@@ -1,10 +1,8 @@
 package com.ki.dms.adapters;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +62,7 @@ public class ExerciseAdapter extends BaseAdapter {
 
 	private String getDistance(Date date) {
 		int ms = (int) ((new Date()).getTime() - date.getTime());
-		int min = ms / 1000;
+		int min = ms / 60000;
 		if (min == 0) {
 			return "less tha 1 minute ago";
 		}

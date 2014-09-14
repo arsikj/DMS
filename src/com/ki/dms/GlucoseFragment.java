@@ -91,10 +91,6 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 	public void onClick(View arg0) {// listener for adding new measure
 		EditText editText = (EditText) getView().findViewById(
 				R.id.glucose_measure);
-<<<<<<< HEAD
-		editText.clearFocus();
-=======
->>>>>>> origin/master
 		String measure = editText.getText().toString();
 		int m;
 		// validations

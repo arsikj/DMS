@@ -31,10 +31,9 @@ public class AddExerciseActivity extends Activity implements
 	/**
 	 * Type of exercise
 	 */
-	String exercise;
+	String exercise = "Walking";
 	User user;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
