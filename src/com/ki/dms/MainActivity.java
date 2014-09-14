@@ -2,6 +2,7 @@ package com.ki.dms;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -83,7 +84,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			// exercise
 			break;
 		case 2:
-			// help
+			startActivity(new Intent(this, Help.class));
 			break;
 		case 3:
 			finish();

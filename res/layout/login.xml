@@ -8,7 +8,7 @@
     <ImageButton
         android:id="@+id/dms_btn_add_user"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/buttons"
         android:contentDescription="@string/dms_add_user"

@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:paddingTop="10dp" >
+    android:background="@color/white" >
 
     <LinearLayout
         android:id="@+id/glucose_form"
@@ -12,13 +11,15 @@
         android:alpha="0.9"
         android:background="@color/grey"
         android:orientation="vertical"
-        android:padding="5dp" >
+        android:padding="10dp"
+         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="fill"
-            android:paddingBottom="5dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp"
             android:singleLine="false"
             android:text="@string/glucose_note"
             android:textColor="@color/red" />

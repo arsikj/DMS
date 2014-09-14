@@ -98,6 +98,7 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 					Toast.LENGTH_SHORT).show();
 		} else {
 			String reason = "No reason.";
+			todayMeasure = new Glucose((new Date()).getTime(), m, reason);
 			AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 			if (m < user.getLowGlucose()) {
 
@@ -159,7 +160,7 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 				addMeasure();
 			}
 			builder.show();
-			todayMeasure = new Glucose((new Date()).getTime(), m, reason);
+			
 
 			((LinearLayout) getView().findViewById(R.id.glucose_form))
 					.setVisibility(LinearLayout.GONE);
