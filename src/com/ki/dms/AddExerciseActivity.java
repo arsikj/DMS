@@ -3,7 +3,6 @@ package com.ki.dms;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
@@ -15,6 +14,7 @@ public class AddExerciseActivity extends Activity implements
 			R.id.radio_bicycle, R.id.radio_jog, R.id.radio_run, R.id.radio_swim };
 	String exercise;
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

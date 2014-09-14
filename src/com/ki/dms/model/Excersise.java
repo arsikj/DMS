@@ -1,7 +1,9 @@
 package com.ki.dms.model;
 
 import java.util.Date;
-
+/*
+ * Data model for exercise
+ */
 public class Excersise {
 
 	private Date date;

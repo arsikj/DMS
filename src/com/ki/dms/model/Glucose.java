@@ -1,7 +1,9 @@
 package com.ki.dms.model;
 
 import java.util.Date;
-
+/*
+ * Data model for glucose
+ */
 public class Glucose {
 
 	private Date date;

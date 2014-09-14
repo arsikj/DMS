@@ -31,10 +31,10 @@
 	<string name="exercise_hint">e.g. 30</string>
 	<string name="exercise_mins">mins</string>
 	<string name="exercise_type">Type of workout:</string>
-	<string name="exercise_radio_walk">Walk</string>
-	<string name="exercise_radio_jog">Jog</string>
-	<string name="exercise_radio_run">Run</string>
-	<string name="exercise_radio_swim">Swim</string>
+	<string name="exercise_radio_walk">Walking</string>
+	<string name="exercise_radio_jog">Jogging</string>
+	<string name="exercise_radio_run">Running</string>
+	<string name="exercise_radio_swim">Swimming</string>
 	<string name="exercise_radio_bicycle">Bicycle</string>
 	<string name="exercice_btn_ok">OK</string>
 </resources>

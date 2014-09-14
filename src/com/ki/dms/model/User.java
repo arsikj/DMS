@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
+/*
+ * Data model for user 
+ */
 public class User implements Parcelable {
 
 	private long id;
@@ -187,6 +189,9 @@ public class User implements Parcelable {
 		return 0;
 	}
 
+	/*
+	 * saves the user object
+	 */
 	@Override
 	public void writeToParcel(Parcel out, int flags) {
 		out.writeLong(id);
