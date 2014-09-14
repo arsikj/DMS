@@ -1,10 +1,15 @@
 package com.ki.dms.model;
 
 import java.util.Date;
+<<<<<<< HEAD:src/com/ki/dms/model/Exercise.java
+
+public class Exercise {
+=======
 /*
  * Data model for exercise
  */
 public class Excersise {
+>>>>>>> 13c7549c2807e307fa36a564c0276ae034d1372e:src/com/ki/dms/model/Excersise.java
 
 	private Date date;
 	private int duration;
@@ -34,7 +39,7 @@ public class Excersise {
 		this.type = type;
 	}
 
-	public Excersise(long date, int duration, String type) {
+	public Exercise(long date, int duration, String type) {
 		this.date = new Date(date);
 		this.duration = duration;
 		this.type = type;

@@ -27,13 +27,13 @@ public class User implements Parcelable {
 
 	ArrayList<Glucose> measures;
 	
-	ArrayList<Excersise> excersises;
+	ArrayList<Exercise> excersises;
 
-	public ArrayList<Excersise> getExcersises() {
+	public ArrayList<Exercise> getExcersises() {
 		return excersises;
 	}
 
-	public void setExcersises(ArrayList<Excersise> excersises) {
+	public void setExcersises(ArrayList<Exercise> excersises) {
 		this.excersises = excersises;
 	}
 

@@ -26,6 +26,12 @@ import com.ki.dms.db.GlucoseTable;
 import com.ki.dms.model.Glucose;
 import com.ki.dms.model.User;
 
+/**
+ * Fragment responsible for glucose_fragment.xml view
+ * 
+ * @author DMS team
+ * 
+ */
 @SuppressLint("ValidFragment")
 public class GlucoseFragment extends Fragment implements OnClickListener {
 
@@ -45,14 +51,17 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		// set view
 		View view = inflater.inflate(R.layout.glucose_fragment, container,
 				false);
 		listView = (ListView) view.findViewById(R.id.glucose_list);
+		// populate measures
 		glucoseTable = new GlucoseTable(getActivity());
 		glucoseTable.open();
 		glucoseTable.populateMeasuresForUser(user);
 		glucoseTable.close();
 
+		// check if today measures were taken
 		ArrayList<Glucose> measures = user.getMeasures();
 		if (measures.size() != 0) {
 			Date lastMeasure = measures.get(measures.size() - 1).getDate();
@@ -79,12 +88,16 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 	}
 
 	@Override
-	public void onClick(View arg0) {
+	public void onClick(View arg0) {// listener for adding new measure
 		EditText editText = (EditText) getView().findViewById(
 				R.id.glucose_measure);
+<<<<<<< HEAD
 		editText.clearFocus();
+=======
+>>>>>>> origin/master
 		String measure = editText.getText().toString();
 		int m;
+		// validations
 		try {
 			m = Integer.parseInt(measure);
 		} catch (NumberFormatException e) {
@@ -99,6 +112,7 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 			String reason = "No reason.";
 			todayMeasure = new Glucose((new Date()).getTime(), m, reason);
 			AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+			// alerts for low normal and high glucose level
 			if (m < user.getLowGlucose()) {
 
 				builder.setTitle("Low glucose level");
@@ -158,6 +172,7 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 				reason = "Glucose level normal.";
 				addMeasure();
 			}
+			// show message
 			builder.show();
 
 			((LinearLayout) getView().findViewById(R.id.glucose_form))

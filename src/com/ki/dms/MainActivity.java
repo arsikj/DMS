@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				R.layout.drawer_list_item, getResources().getStringArray(
 						R.array.drawer_list)));
 		drawerListView.setOnItemClickListener(this);
-
+		setTitle(user.getName());
 		toggle = new ActionBarDrawerToggle(this, drawerLayout,
 				R.drawable.ic_drawer_open, R.string.drawer_open,
 				R.string.drawer_close) {
@@ -81,7 +81,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		Fragment fragment = new GlucoseFragment(user);// CASE 0
 		switch (position) {
 		case 1:
-			fragment = new ExerciseFragment();
+			fragment = new ExerciseFragment(user);
 			break;
 		case 2:
 			startActivity(new Intent(this, Help.class));

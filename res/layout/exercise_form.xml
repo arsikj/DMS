@@ -29,7 +29,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/ecercise_duration"
+                android:id="@+id/exercise_duration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

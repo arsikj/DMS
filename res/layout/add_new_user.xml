@@ -104,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/add_user_margin"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:hint="@string/add_user_from_et"
                 android:inputType="number" >
             </EditText>
@@ -122,6 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/add_user_margin"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:hint="@string/add_user_to_et"
                 android:inputType="number" >
             </EditText>
@@ -131,10 +133,10 @@
             android:id="@+id/add_user_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
             android:onClick="save"
             android:text="@string/add_user_save_btn"
-            android:background="@drawable/buttons"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </ScrollView>
