@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.ki.dms.R;
 import com.ki.dms.model.User;
-
+/*
+ * Adapter for user list
+ */
 public class UserListAdapter extends BaseAdapter {
 	LayoutInflater inflater;
 	ArrayList<User> users;
@@ -24,6 +26,7 @@ public class UserListAdapter extends BaseAdapter {
 		this.users = users;
 	}
 
+	//return number of users in list
 	@Override
 	public int getCount() {
 		return users.size();

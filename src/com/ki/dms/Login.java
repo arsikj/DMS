@@ -16,7 +16,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
-
+/*
+ * Activity responsible for login.xml view
+ */
 public class Login extends Activity implements OnItemClickListener,
 		OnItemLongClickListener {
 
@@ -48,10 +50,10 @@ public class Login extends Activity implements OnItemClickListener,
 	public void onClick(View view) {
 		if (users.size() < 9) {
 			Intent intent = new Intent(this, AddNewUser.class);
-			startActivityForResult(intent, ADD_USER_REQ_CODE);
+			startActivityForResult(intent, ADD_USER_REQ_CODE); //user successfully added
 		} else {
 			Toast.makeText(this, R.string.login_toast_add_new_user_negative,
-					Toast.LENGTH_LONG).show();
+					Toast.LENGTH_LONG).show(); //user cannot be added
 		}
 	}
 
@@ -67,6 +69,7 @@ public class Login extends Activity implements OnItemClickListener,
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
+	//refreshes the list with users
 	private void refreshList() {
 		ut.open();
 		users.add(ut.getlastUser());
@@ -76,10 +79,6 @@ public class Login extends Activity implements OnItemClickListener,
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		/*
-		 * Toast.makeText(this, users.get(pos).getName(), Toast.LENGTH_SHORT)
-		 * .show();
-		 */
 		User user = users.get(pos);
 		Intent intent = new Intent(this, MainActivity.class);
 		intent.putExtra("tag", user);
@@ -87,6 +86,7 @@ public class Login extends Activity implements OnItemClickListener,
 
 	}
 
+	//dialog for deleting user
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view,
 			final int position, long id) {
@@ -102,7 +102,8 @@ public class Login extends Activity implements OnItemClickListener,
 
 						users.remove(adapter.getItem(pos));
 
-						adapter.notifyDataSetChanged();
+						adapter.notifyDataSetChanged(); //refreshes the users list
+						
 					}
 				});
 

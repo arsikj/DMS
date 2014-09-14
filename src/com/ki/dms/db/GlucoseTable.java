@@ -6,10 +6,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.ki.dms.model.Glucose;
 import com.ki.dms.model.User;
-
+/*
+ * database model for glucose table
+ */
 public class GlucoseTable {
 	DbAdapter adapter;
 	private SQLiteDatabase db;
@@ -32,6 +33,9 @@ public class GlucoseTable {
 
 	public static final String DATABASE_TABLE = "glucose";
 
+	/*
+	 * query for table creation
+	 */
 	static final String CREATE_TABLE_SQL = "create table " + DATABASE_TABLE
 			+ " (" + KEY_ROWID + " integer primary key autoincrement, "
 			+ KEY_USER_ID + " integer not null, " + KEY_DATE
@@ -63,26 +67,17 @@ public class GlucoseTable {
 		return db.insert(DATABASE_TABLE, null, initialValues);
 	}
 
+	//saves the current glucose measurement
 	public long saveMeasure(long user_id, Glucose glucose) {
 		return insertRow(user_id, glucose.getDate().getTime(),
 				glucose.getLevel(), glucose.getReason());
 	}
 
+	//deletes a glucose from the existing table
 	public boolean deleteRow(long rowId) {
 		String where = KEY_ROWID + "=" + rowId;
 		return db.delete(DATABASE_TABLE, where, null) != 0;
 	}
-
-	// public void deleteAll() {
-	// Cursor c = getAllRows();
-	// long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
-	// if (c.moveToFirst()) {
-	// do {
-	// deleteRow(c.getLong((int) rowId));
-	// } while (c.moveToNext());
-	// }
-	// c.close();
-	// }
 
 	// Get a specific row (by rowId)
 	public Cursor getRow(long rowId, long userId) {
@@ -111,6 +106,7 @@ public class GlucoseTable {
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}
 
+	//returns all glucose measurements for specific user
 	public ArrayList<Glucose> measuresForUser(long userId) {
 		ArrayList<Glucose> measures = new ArrayList<Glucose>();
 		String selection = KEY_USER_ID + "=" + userId;
@@ -127,14 +123,17 @@ public class GlucoseTable {
 		return measures;
 	}
 
+	//loads the users glucose list
 	public void populateMeasuresForUser(User user) {
 		user.setMeasures(measuresForUser(user.getId()));
 	}
 
+	//method for editing glucose table
 	public boolean update(long id, ContentValues values) {
 		return db.update(DATABASE_TABLE, values, KEY_ROWID + " = " + id, null) > 0;
 	}
 
+	//populates the glucose table
 	private Glucose populate(Cursor cursor) {
 		return new Glucose(cursor.getLong(COL_DATE),
 				cursor.getInt(COL_GLUCOSE_LEVEL), cursor.getString(COL_REASON));

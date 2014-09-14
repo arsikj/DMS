@@ -1,5 +1,8 @@
 package com.ki.dms.contacts.model;
 
+/*
+ * model for displaying all contacts that logged user has in phonebook
+ */
 public class Contact {
 
 	private String displayName;
@@ -22,5 +25,4 @@ public class Contact {
 		this.number = number;
 	}
 
-	
 }

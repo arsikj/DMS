@@ -19,7 +19,9 @@ import com.ki.dms.contacts.ContactsDao;
 import com.ki.dms.contacts.ContactsListAdapter;
 import com.ki.dms.contacts.ContactsLoadListener;
 import com.ki.dms.contacts.model.Contact;
-
+/*
+ * Activity responsible for contacts.xml view
+ */
 public class PhoneContactsListActivity extends Activity implements
 		ContactsLoadListener, OnItemClickListener, OnQueryTextListener {
 
@@ -66,6 +68,7 @@ public class PhoneContactsListActivity extends Activity implements
 		return true;
 	}
 
+	//adds the doctors for current user
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {

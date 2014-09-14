@@ -3,7 +3,9 @@ package com.ki.dms.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+/*
+ * Database model for the application
+ */
 public class DbAdapter {
 
 	private final static String DB_NAME = "DMS";
@@ -32,6 +34,9 @@ public class DbAdapter {
 			super(context, DB_NAME, null, DB_VERSION);
 		}
 
+		/*
+		 * creates the database tables
+		 */
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL(UserTable.CREATE_TABLE_SQL);

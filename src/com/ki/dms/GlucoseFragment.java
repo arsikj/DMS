@@ -1,6 +1,7 @@
 package com.ki.dms;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import android.annotation.SuppressLint;
@@ -53,20 +54,19 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 		glucoseTable.close();
 
 		ArrayList<Glucose> measures = user.getMeasures();
-		// TODO uncomment
-		// if (measures.size() != 0) {
-		// Date lastMeasure = measures.get(measures.size() - 1).getDate();
-		// Calendar calendar = Calendar.getInstance();
-		// Calendar today = Calendar.getInstance();
-		// calendar.setTime(lastMeasure);
-		// today.setTime(new Date());
-		//
-		// if (calendar.get(Calendar.DAY_OF_YEAR) == today
-		// .get(Calendar.DAY_OF_YEAR)) {
-		// ((LinearLayout) view.findViewById(R.id.glucose_form))
-		// .setVisibility(LinearLayout.GONE);
-		// }
-		// }
+		if (measures.size() != 0) {
+			Date lastMeasure = measures.get(measures.size() - 1).getDate();
+			Calendar calendar = Calendar.getInstance();
+			Calendar today = Calendar.getInstance();
+			calendar.setTime(lastMeasure);
+			today.setTime(new Date());
+
+			if (calendar.get(Calendar.DAY_OF_YEAR) == today
+					.get(Calendar.DAY_OF_YEAR)) {
+				((LinearLayout) view.findViewById(R.id.glucose_form))
+						.setVisibility(LinearLayout.GONE);
+			}
+		}
 
 		adapter = new GlucoseListAdapter(user.getMeasures(), getActivity()
 				.getLayoutInflater());
@@ -82,7 +82,7 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 	public void onClick(View arg0) {
 		EditText editText = (EditText) getView().findViewById(
 				R.id.glucose_measure);
-		editText.clearFocus();// TODO close keyboard
+		editText.clearFocus();
 		String measure = editText.getText().toString();
 		int m;
 		try {
@@ -159,7 +159,6 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 				addMeasure();
 			}
 			builder.show();
-			
 
 			((LinearLayout) getView().findViewById(R.id.glucose_form))
 					.setVisibility(LinearLayout.GONE);

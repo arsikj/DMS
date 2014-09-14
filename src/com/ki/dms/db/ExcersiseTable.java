@@ -6,11 +6,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.ki.dms.model.Excersise;
-import com.ki.dms.model.Glucose;
 import com.ki.dms.model.User;
-
+/*
+ * database model for exercise table
+ */
 public class ExcersiseTable {
 
 	DbAdapter adapter;
@@ -34,6 +34,9 @@ public class ExcersiseTable {
 
 	public static final String DATABASE_TABLE = "excersise";
 
+	/*
+	 * query for table creation
+	 */
 	static final String CREATE_TABLE_SQL = "create table " + DATABASE_TABLE
 			+ " (" + KEY_ROWID + " integer primary key autoincrement, "
 			+ KEY_USER_ID + " integer not null, " + KEY_DATE
@@ -65,26 +68,18 @@ public class ExcersiseTable {
 		return db.insert(DATABASE_TABLE, null, initialValues);
 	}
 
+	//Adds an exercise to the existing table
 	public long saveExcersise(long user_id, Excersise excersise) {
 		return insertRow(user_id, excersise.getDate().getTime(),
 				excersise.getDuration(), excersise.getType());
 	}
 
+	//Deletes an exercise from the existing table
 	public boolean deleteRow(long rowId) {
 		String where = KEY_ROWID + "=" + rowId;
 		return db.delete(DATABASE_TABLE, where, null) != 0;
 	}
 
-	// public void deleteAll() {
-	// Cursor c = getAllRows();
-	// long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
-	// if (c.moveToFirst()) {
-	// do {
-	// deleteRow(c.getLong((int) rowId));
-	// } while (c.moveToNext());
-	// }
-	// c.close();
-	// }
 
 	// Get a specific row (by rowId)
 	public Cursor getRow(long rowId, long userId) {
@@ -113,6 +108,7 @@ public class ExcersiseTable {
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}
 
+	//returns all exercises for specific user
 	public ArrayList<Excersise> excersisesForUser(long userId) {
 		ArrayList<Excersise> excersises = new ArrayList<Excersise>();
 		String selection = KEY_USER_ID + "=" + userId;
@@ -129,14 +125,17 @@ public class ExcersiseTable {
 		return excersises;
 	}
 
+	//loads the users exercises list
 	public void populateExcersisesForUser(User user) {
 		user.setExcersises(excersisesForUser(user.getId()));
 	}
 
+	//method for editing exercise table
 	public boolean update(long id, ContentValues values) {
 		return db.update(DATABASE_TABLE, values, KEY_ROWID + " = " + id, null) > 0;
 	}
 
+	//populates the exercise table
 	private Excersise populate(Cursor cursor) {
 		return new Excersise(cursor.getLong(COL_DATE),
 				cursor.getInt(COL_DURATION), cursor.getString(COL_TYPE));

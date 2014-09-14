@@ -9,6 +9,9 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
+/*
+ * Data access object for reading contacts from phonebook
+ */
 public class ContactsDao {
 
 	private Activity activity;
@@ -22,6 +25,7 @@ public class ContactsDao {
 		getcontacts();
 	}
 
+	//gets all contacts
 	private void getcontacts() {
 		(new Thread(new Runnable() {
 			@Override
@@ -47,7 +51,8 @@ public class ContactsDao {
 				activity.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						ContactsDao.this.contactsLoadListener.onContactsLoad(contacts);
+						ContactsDao.this.contactsLoadListener
+								.onContactsLoad(contacts);
 					}
 				});
 

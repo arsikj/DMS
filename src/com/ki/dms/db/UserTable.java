@@ -8,7 +8,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.ki.dms.model.User;
-
+/*
+ * database model for user table
+ */
 public class UserTable {
 	DbAdapter adapter;
 	private SQLiteDatabase db;
@@ -38,6 +40,9 @@ public class UserTable {
 
 	public static final String DATABASE_TABLE = "user";
 
+	/*
+	 * query for table creation
+	 */
 	static final String CREATE_TABLE_SQL = "create table " + DATABASE_TABLE
 			+ " (" + KEY_ROWID + " integer primary key autoincrement, "
 			+ KEY_NAME + " text not null, " + KEY_ID_NUMBER
@@ -80,17 +85,6 @@ public class UserTable {
 		return db.delete(DATABASE_TABLE, where, null) != 0;
 	}
 
-	// public void deleteAll() {
-	// Cursor c = getAllRows();
-	// long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
-	// if (c.moveToFirst()) {
-	// do {
-	// deleteRow(c.getLong((int) rowId));
-	// } while (c.moveToNext());
-	// }
-	// c.close();
-	// }
-
 	// Get a specific row (by rowId)
 	public Cursor getRow(long rowId) {
 		String where = KEY_ROWID + "=" + rowId;
@@ -121,6 +115,7 @@ public class UserTable {
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}
 
+	//return all users
 	public ArrayList<User> allUsers() {
 		ArrayList<User> users = new ArrayList<User>();
 		Cursor cursor = db.query(DATABASE_TABLE, ALL_KEYS, null, null, null,
@@ -136,10 +131,12 @@ public class UserTable {
 		return users;
 	}
 
+	//method for editing user table
 	public boolean update(long id, ContentValues values) {
 		return db.update(DATABASE_TABLE, values, KEY_ROWID + " = " + id, null) > 0;
 	}
 
+	//return the last user entered
 	public User getlastUser() {
 		Cursor cursor = db.query(DATABASE_TABLE, ALL_KEYS, null, null, null,
 				null, null);
@@ -149,6 +146,7 @@ public class UserTable {
 		return null;
 	}
 
+	//populates the user table
 	private User populate(Cursor cursor) {
 		User user = new User();
 		user.setId(cursor.getLong(COL_ROWID));

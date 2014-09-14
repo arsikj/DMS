@@ -1,5 +1,7 @@
 package com.ki.dms.adapters;
-
+/*
+ * Adapter for glucose list
+ */
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,11 +27,13 @@ public class GlucoseListAdapter extends BaseAdapter {
 		this.inflater = inflater;
 	}
 
+	//adds a glucose reading
 	public void addMeasure(Glucose glucose) {
 		measures.add(glucose);
 		notifyDataSetChanged();
 	}
 
+	//return number of glucose readings for specific user
 	@Override
 	public int getCount() {
 		return measures.size();

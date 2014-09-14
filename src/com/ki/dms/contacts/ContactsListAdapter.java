@@ -1,6 +1,8 @@
 package com.ki.dms.contacts;
 
-
+/*
+ * Adapter for contact list
+ */
 
 import java.util.ArrayList;
 
