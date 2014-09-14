@@ -1,8 +1,15 @@
 package com.ki.dms.model;
 
 import java.util.Date;
+<<<<<<< HEAD:src/com/ki/dms/model/Exercise.java
 
 public class Exercise {
+=======
+/*
+ * Data model for exercise
+ */
+public class Excersise {
+>>>>>>> 13c7549c2807e307fa36a564c0276ae034d1372e:src/com/ki/dms/model/Excersise.java
 
 	private Date date;
 	private int duration;

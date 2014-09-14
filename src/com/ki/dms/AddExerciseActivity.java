@@ -34,6 +34,7 @@ public class AddExerciseActivity extends Activity implements
 	String exercise;
 	User user;
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
