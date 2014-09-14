@@ -36,14 +36,14 @@ public class DbAdapter {
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL(UserTable.CREATE_TABLE_SQL);
 			db.execSQL(GlucoseTable.CREATE_TABLE_SQL);
-			db.execSQL(ExcersiseTable.CREATE_TABLE_SQL);
+			db.execSQL(ExerciseTable.CREATE_TABLE_SQL);
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			db.execSQL("DROP TABLE IF EXISTS " + UserTable.DATABASE_TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + GlucoseTable.DATABASE_TABLE);
-			db.execSQL("DROP TABLE IF EXISTS " + ExcersiseTable.DATABASE_TABLE);
+			db.execSQL("DROP TABLE IF EXISTS " + ExerciseTable.DATABASE_TABLE);
 			// Recreate new database:
 			onCreate(db);
 		}

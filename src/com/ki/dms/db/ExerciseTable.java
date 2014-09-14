@@ -7,11 +7,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.ki.dms.model.Excersise;
+import com.ki.dms.model.Exercise;
 import com.ki.dms.model.Glucose;
 import com.ki.dms.model.User;
 
-public class ExcersiseTable {
+public class ExerciseTable {
 
 	DbAdapter adapter;
 	private SQLiteDatabase db;
@@ -40,11 +40,11 @@ public class ExcersiseTable {
 			+ " integer not null, " + KEY_DURATION + " integer not null, "
 			+ KEY_TYPE + " text not null );";
 
-	public ExcersiseTable(Context context) {
+	public ExerciseTable(Context context) {
 		adapter = new DbAdapter(context);
 	}
 
-	public ExcersiseTable open() {
+	public ExerciseTable open() {
 		db = adapter.open();
 		return this;
 	}
@@ -65,7 +65,7 @@ public class ExcersiseTable {
 		return db.insert(DATABASE_TABLE, null, initialValues);
 	}
 
-	public long saveExcersise(long user_id, Excersise excersise) {
+	public long saveExcersise(long user_id, Exercise excersise) {
 		return insertRow(user_id, excersise.getDate().getTime(),
 				excersise.getDuration(), excersise.getType());
 	}
@@ -113,8 +113,8 @@ public class ExcersiseTable {
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}
 
-	public ArrayList<Excersise> excersisesForUser(long userId) {
-		ArrayList<Excersise> excersises = new ArrayList<Excersise>();
+	public ArrayList<Exercise> excersisesForUser(long userId) {
+		ArrayList<Exercise> excersises = new ArrayList<Exercise>();
 		String selection = KEY_USER_ID + "=" + userId;
 		Cursor cursor = db.query(DATABASE_TABLE, ALL_KEYS, selection, null,
 				null, null, null);
@@ -129,16 +129,17 @@ public class ExcersiseTable {
 		return excersises;
 	}
 
-	public void populateExcersisesForUser(User user) {
+	public ExerciseTable populateExcersisesForUser(User user) {
 		user.setExcersises(excersisesForUser(user.getId()));
+		return this;
 	}
 
 	public boolean update(long id, ContentValues values) {
 		return db.update(DATABASE_TABLE, values, KEY_ROWID + " = " + id, null) > 0;
 	}
 
-	private Excersise populate(Cursor cursor) {
-		return new Excersise(cursor.getLong(COL_DATE),
+	private Exercise populate(Cursor cursor) {
+		return new Exercise(cursor.getLong(COL_DATE),
 				cursor.getInt(COL_DURATION), cursor.getString(COL_TYPE));
 	}
 }

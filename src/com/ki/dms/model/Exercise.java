@@ -2,7 +2,7 @@ package com.ki.dms.model;
 
 import java.util.Date;
 
-public class Excersise {
+public class Exercise {
 
 	private Date date;
 	private int duration;
@@ -32,7 +32,7 @@ public class Excersise {
 		this.type = type;
 	}
 
-	public Excersise(long date, int duration, String type) {
+	public Exercise(long date, int duration, String type) {
 		this.date = new Date(date);
 		this.duration = duration;
 		this.type = type;

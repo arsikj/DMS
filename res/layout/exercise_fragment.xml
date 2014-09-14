@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:background="@drawable/buttons"
-        android:text="@string/exercice_btn_ok" />
+        android:text="@string/exercice_btn_add_exercise" />
 
     <ListView
         android:id="@+id/exercise_list"
