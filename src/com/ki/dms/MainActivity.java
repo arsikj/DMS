@@ -80,7 +80,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		Fragment fragment = new GlucoseFragment(user);// CASE 0
 		switch (position) {
 		case 1:
-			// exercise
+			fragment = new ExerciseFragment();
 			break;
 		case 2:
 			// help

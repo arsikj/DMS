@@ -6,13 +6,6 @@
     android:orientation="vertical"
     android:paddingTop="10dp" >
 
-    <ListView
-        android:id="@+id/exercise_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/exercise_btn_add" >
-    </ListView>
-
     <Button
         android:id="@+id/exercise_btn_add"
         android:layout_width="match_parent"
@@ -21,5 +14,12 @@
         android:layout_margin="10dp"
         android:background="@drawable/buttons"
         android:text="@string/exercice_btn_ok" />
+
+    <ListView
+        android:id="@+id/exercise_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/exercise_btn_add" >
+    </ListView>
 
 </RelativeLayout>
