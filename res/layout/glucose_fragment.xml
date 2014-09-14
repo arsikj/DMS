@@ -35,7 +35,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="mg/dL"
+                android:hint="@string/glucose_mg_dl"
                 android:inputType="number" />
 
             <Button
@@ -47,7 +47,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttons"
-                android:text="Submit" />
+                android:text="@string/glucose_submit" />
         </LinearLayout>
     </LinearLayout>
 

@@ -11,7 +11,7 @@ public class ExerciseFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.exercise_fragment, container,
+		View view = inflater.inflate(R.layout.exercise_form, container,
 				false);
 		return view;
 	}

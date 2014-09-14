@@ -24,6 +24,16 @@ public class User implements Parcelable {
 	private int exercisedDays;
 
 	ArrayList<Glucose> measures;
+	
+	ArrayList<Excersise> excersises;
+
+	public ArrayList<Excersise> getExcersises() {
+		return excersises;
+	}
+
+	public void setExcersises(ArrayList<Excersise> excersises) {
+		this.excersises = excersises;
+	}
 
 	public ArrayList<Glucose> getMeasures() {
 		return measures;
