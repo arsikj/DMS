@@ -70,7 +70,6 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 
 		adapter = new GlucoseListAdapter(user.getMeasures(), getActivity()
 				.getLayoutInflater());
-		listView.setStackFromBottom(true);
 		listView.setAdapter(adapter);
 
 		((Button) view.findViewById(R.id.glucose_measure_btn))

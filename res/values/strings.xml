@@ -24,5 +24,17 @@
     <string name="drawer_open">It is Open!</string>
     <string name="drawer_close">It is Closed!</string>
     <string name="glucose_note">You have not entered any measurements today! If you have not taken any, please do it now and enter your results.</string>
-
+	<string name="glucose_mg_dl">mg/dL</string>
+	<string name="glucose_submit">Submit</string>
+	<string name="exercise_message">You haven\'t exercised today!</string>
+	<string name="exercise_duration">Duration:</string>
+	<string name="exercise_hint">e.g. 30</string>
+	<string name="exercise_mins">mins</string>
+	<string name="exercise_type">Type of workout:</string>
+	<string name="exercise_radio_walk">Walk</string>
+	<string name="exercise_radio_jog">Jog</string>
+	<string name="exercise_radio_run">Run</string>
+	<string name="exercise_radio_swim">Swim</string>
+	<string name="exercise_radio_bicycle">Bicycle</string>
+	<string name="exercice_btn_ok">OK</string>
 </resources>

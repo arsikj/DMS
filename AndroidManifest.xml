@@ -63,10 +63,20 @@
             </intent-filter>
         </activity>
         <activity
+
             android:name="com.ki.dms.Help"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.HELP" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+           <activity  android:name="com.ki.dms.AddExerciseActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.ADDEXERCISEACTIVITY" />
+
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
