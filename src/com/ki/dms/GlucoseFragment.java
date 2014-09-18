@@ -64,7 +64,8 @@ public class GlucoseFragment extends Fragment implements OnClickListener {
 		// check if today measures were taken
 		ArrayList<Glucose> measures = user.getMeasures();
 		if (measures.size() != 0) {
-			Date lastMeasure = measures.get(measures.size() - 1).getDate();
+			//Date lastMeasure = measures.get(measures.size() - 1).getDate();
+			Date lastMeasure = measures.get(0).getDate();
 			Calendar calendar = Calendar.getInstance();
 			Calendar today = Calendar.getInstance();
 			calendar.setTime(lastMeasure);

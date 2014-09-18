@@ -71,14 +71,14 @@ public class AddExerciseActivity extends Activity implements
 		String durationText = ((EditText) findViewById(R.id.exercise_duration))
 				.getText().toString();
 		if (durationText.trim().length() == 0) {
-			Toast.makeText(this, "Invalid inut", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		int duration;
 		try {// parsing
 			duration = Integer.parseInt(durationText);
 		} catch (NumberFormatException e) {
-			Toast.makeText(this, "Invalid inut", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		// creating exercise and saving to database

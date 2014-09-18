@@ -64,7 +64,7 @@ public class ExerciseAdapter extends BaseAdapter {
 		int ms = (int) ((new Date()).getTime() - date.getTime());
 		int min = ms / 60000;
 		if (min == 0) {
-			return "less tha 1 minute ago";
+			return "less than 1 minute ago";
 		}
 		int hours = min / 60;
 		if (hours == 0) {
